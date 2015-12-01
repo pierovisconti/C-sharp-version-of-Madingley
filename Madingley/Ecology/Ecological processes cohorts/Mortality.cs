@@ -53,7 +53,7 @@ namespace Madingley
         /// <param name="implementationKey">The name of the implementation of mortality to initialize</param>
         public void InitializeEcologicalProcess(GridCellCohortHandler gridCellCohorts, GridCellStockHandler gridCellStocks,
             FunctionalGroupDefinitions madingleyCohortDefinitions, FunctionalGroupDefinitions madingleyStockDefinitions, 
-            string implementationKey)
+            string implementationKey, SortedList<string, double[]> cellEnvironmen)
         {
 
         }

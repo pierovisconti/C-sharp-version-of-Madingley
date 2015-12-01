@@ -232,14 +232,13 @@ namespace Madingley
         /// <param name="preyMassBinNumber">The mass bin of the prey</param>
         /// <param name="preyFunctionalGroup">The functional group index of the prey</param>
         /// <param name="predatorIndividualMass">The body mass of predator individuals</param>
-        /// <param name="preyIsCarnivore">Whether the prey cohort is a carnivore cohort</param>
-        /// <param name="preyIsOmnivore">Whether the prey cohort is an omnivore cohort</param>
-        /// <param name="predatorIsOmnivore">Whether the predator cohort is an omnivore cohort</param>
+        /// <param name="preyIsCarnivore">Whether the prey cohort is a carnivore cohort</param> //taken out as not used
+        /// <param name="preyIsOmnivore">Whether the prey cohort is an omnivore cohort</param> // ditto
+        /// <param name="predatorIsOmnivore">Whether the predator cohort is an omnivore cohort</param> //ditto
         /// <param name="logOptimalPreyPredatorMassRatio">The log ratio of optimal prey body mass to predator body mass</param>
         /// <returns>The potential number of individuals in a prey cohort eaten by an acting predator cohort</returns>
         private double CalculateExpectedNumberKilledTerrestrial(double preyAbundance, double preyIndividualMass, int preyMassBinNumber, 
-            int preyFunctionalGroup, double predatorIndividualMass, Boolean preyIsCarnivore, Boolean preyIsOmnivore, Boolean predatorIsOmnivore, 
-            double logOptimalPreyPredatorMassRatio)
+            int preyFunctionalGroup, double predatorIndividualMass,double logOptimalPreyPredatorMassRatio)
             
     {
             // Calculate the killing rate of an individual predator per unit prey density per hectare per time unit
@@ -257,14 +256,13 @@ namespace Madingley
         /// <param name="preyMassBinNumber">The mass bin of the prey</param>
         /// <param name="preyFunctionalGroup">The functional group index of the prey</param>
         /// <param name="predatorIndividualMass">The body mass of predator individuals</param>
-        /// <param name="preyIsCarnivore">Whether the prey cohort is a carnivore cohort</param>
-        /// <param name="preyIsOmnivore">Whether the prey cohort is an omnivore cohort</param>
-        /// <param name="predatorIsOmnivore">Whether the predator cohort is am omnivore cohort</param>
+        /// <param name="preyIsCarnivore">Whether the prey cohort is a carnivore cohort</param> // taken out as not used
+        /// <param name="preyIsOmnivore">Whether the prey cohort is an omnivore cohort</param> // ditto
+        /// <param name="predatorIsOmnivore">Whether the predator cohort is am omnivore cohort</param> // ditto
         /// <param name="logOptimalPreyPredatorMassRatio">The log ratio of optimal prey body mass to predator body mass</param>
         /// <returns>The potential number of individuals in a prey cohort eaten by an acting predator cohort</returns>
         private double CalculateExpectedNumberKilledMarine(double preyAbundance, double preyIndividualMass, int preyMassBinNumber, 
-            int preyFunctionalGroup, double predatorIndividualMass, Boolean preyIsCarnivore, Boolean preyIsOmnivore, Boolean predatorIsOmnivore,
-            double logOptimalPreyPredatorMassRatio)
+            int preyFunctionalGroup, double predatorIndividualMass, double logOptimalPreyPredatorMassRatio)
         {
             // Calculate the killing rate of an individual predator per unit prey density per hectare per time unit
             Alphaij = CalculateIndividualKillingRatePerHectare(preyIndividualMass, preyMassBinNumber, preyFunctionalGroup, predatorIndividualMass, logOptimalPreyPredatorMassRatio);

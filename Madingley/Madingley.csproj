@@ -329,6 +329,9 @@
     <None Include="input\Model setup\Initial model state setup\SpecificLocations.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="input\Model setup\Initial model state setup\SpecificLocationsPloSBpaper.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="input\Model setup\OutputControlParameters.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

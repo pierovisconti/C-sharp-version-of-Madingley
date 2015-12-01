@@ -47,7 +47,7 @@ namespace Madingley
 
             // Run the desired simulation or batch of simulations
             MakeSimulations.RunAllSimulations("SimulationControlParameters.csv", "FileLocationParameters.csv", "OutputControlParameters.csv",Scenarios, OutputDir);
-
+            Console.ReadKey();
         }
 
         

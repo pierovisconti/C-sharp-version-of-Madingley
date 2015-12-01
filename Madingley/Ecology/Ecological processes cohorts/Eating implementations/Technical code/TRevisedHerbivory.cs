@@ -171,12 +171,19 @@ namespace Madingley
         /// <param name="gridCellStocks">The stocks in the current grid cell</param>
         /// <param name="madingleyCohortDefinitions">The definitions for cohorts in the model</param>
         /// <param name="madingleyStockDefinitions">The definitions for stocks in the model</param>
+        /// <param name="cellEnvironment">The environment in the current grid cell</param>
         /// <remarks>This only works if: a) herbivory is initialised in every grid cell; and b) if parallelisation is done by latitudinal strips
         /// It is critical to run this every time step</remarks>
-        public void InitializeEatingPerTimeStep(GridCellCohortHandler gridCellCohorts, GridCellStockHandler gridCellStocks, FunctionalGroupDefinitions madingleyCohortDefinitions, FunctionalGroupDefinitions madingleyStockDefinitions)
+        public void InitializeEatingPerTimeStep(GridCellCohortHandler gridCellCohorts, GridCellStockHandler gridCellStocks, FunctionalGroupDefinitions madingleyCohortDefinitions, FunctionalGroupDefinitions madingleyStockDefinitions, SortedList<string, double[]>
+            cellEnvironment)
         {
             // Get the functional group indices of all autotroph stocks
-            _FunctionalGroupIndicesToEat = madingleyStockDefinitions.GetFunctionalGroupIndex("Heterotroph/Autotroph", "Autotroph", false);          
+           _FunctionalGroupIndicesToEat = madingleyStockDefinitions.GetFunctionalGroupIndex("Heterotroph/Autotroph", "Autotroph", false);
+
+            string[] realm = { "Terrestrial", "Marine" };
+
+            int realm_index = (int)cellEnvironment["Realm"][0] - 1;
+            string Current_realm = realm[realm_index];
         }
 
         /// <summary>

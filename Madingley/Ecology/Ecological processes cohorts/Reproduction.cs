@@ -38,7 +38,7 @@ namespace Madingley
         /// <param name="madingleyCohortDefinitions">The definitions for cohort functional groups in the model</param>
         /// <param name="madingleyStockDefinitions">The definitions for stock functional groups in the model</param>
         /// <param name="implementationKey">The name of the reproduction implementation to initialize</param>
-        public void InitializeEcologicalProcess(GridCellCohortHandler gridCellCohorts, GridCellStockHandler gridCellStocks, FunctionalGroupDefinitions madingleyCohortDefinitions, FunctionalGroupDefinitions madingleyStockDefinitions, string implementationKey)
+        public void InitializeEcologicalProcess(GridCellCohortHandler gridCellCohorts, GridCellStockHandler gridCellStocks, FunctionalGroupDefinitions madingleyCohortDefinitions, FunctionalGroupDefinitions madingleyStockDefinitions, string implementationKey, SortedList<string, double[]> cellEnvironmen)
         {
 
         }

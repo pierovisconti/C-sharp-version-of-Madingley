@@ -57,7 +57,7 @@ namespace Madingley
         /// The total biomass eaten by the acting cohort 
         /// </summary>
         double TotalBiomassEatenByCohort
-        { get; }       
+        { get; }
 
         /// <summary>
         /// Initialises eating implementation each time step
@@ -66,7 +66,9 @@ namespace Madingley
         /// <param name="gridCellStocks">The stocks in the current grid cell</param>
         /// <param name="madingleyCohortDefinitions">The definitions for cohorts in the model</param>
         /// <param name="madingleyStockDefinitions">The definitions for stocks in the model</param>
-        void InitializeEatingPerTimeStep(GridCellCohortHandler gridCellCohorts, GridCellStockHandler gridCellStocks, FunctionalGroupDefinitions madingleyCohortDefinitions, FunctionalGroupDefinitions madingleyStockDefinitions);
+        /// <param name="cellEnvironment">The environment in the current grid cell</param>
+        void InitializeEatingPerTimeStep(GridCellCohortHandler gridCellCohorts, GridCellStockHandler gridCellStocks, FunctionalGroupDefinitions madingleyCohortDefinitions, FunctionalGroupDefinitions madingleyStockDefinitions, SortedList<string, double[]>
+            cellEnvironment);
         
         /// <summary>
         /// Calculate the potential biomass that could be gained through eating for marine cells

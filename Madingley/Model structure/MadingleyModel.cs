@@ -1195,9 +1195,9 @@ namespace Madingley
 
             // Initialise eating formulations
             MadingleyEcologyCohort.EatingFormulations["Basic eating"].InitializeEcologicalProcess(workingGridCellCohorts, workingGridCellStocks,
-                CohortFunctionalGroupDefinitions, StockFunctionalGroupDefinitions, "revised predation");
+                CohortFunctionalGroupDefinitions, StockFunctionalGroupDefinitions, "revised predation", EcosystemModelGrid.GetCellEnvironment(latCellIndex, lonCellIndex));
             MadingleyEcologyCohort.EatingFormulations["Basic eating"].InitializeEcologicalProcess(workingGridCellCohorts, workingGridCellStocks
-                , CohortFunctionalGroupDefinitions, StockFunctionalGroupDefinitions, "revised herbivory");
+                , CohortFunctionalGroupDefinitions, StockFunctionalGroupDefinitions, "revised herbivory", EcosystemModelGrid.GetCellEnvironment(latCellIndex, lonCellIndex));
 
             // Loop over randomly ordered gridCellCohorts to implement biological functions
             for (int ll = 0; ll < RandomCohortOrder.Length; ll++)

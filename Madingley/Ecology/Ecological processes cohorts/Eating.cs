@@ -57,14 +57,15 @@ namespace Madingley
         /// <param name="madingleyCohortDefinitions">The definitions for cohort functional groups in the model</param>
         /// <param name="madingleyStockDefinitions">The definitions for stock functional groups in the model</param>
         /// <param name="implementationKey">The name of the implementation of eating to initialize</param>
+        /// <param name="cellEnvironment">The environment in the current grid cell</param>
         /// <remarks>Eating needs to be initialized every time step</remarks>
         public void InitializeEcologicalProcess(GridCellCohortHandler gridCellCohorts, GridCellStockHandler gridCellStocks, 
             FunctionalGroupDefinitions madingleyCohortDefinitions, FunctionalGroupDefinitions madingleyStockDefinitions, 
-            string implementationKey)
+            string implementationKey, SortedList<string, double[]> cellEnvironment)
         {
             // Initialize the implementation of the eating process
             Implementations[implementationKey].InitializeEatingPerTimeStep(gridCellCohorts, gridCellStocks, 
-                madingleyCohortDefinitions, madingleyStockDefinitions);
+                madingleyCohortDefinitions, madingleyStockDefinitions,cellEnvironment);
         }
 
         /// <summary>
