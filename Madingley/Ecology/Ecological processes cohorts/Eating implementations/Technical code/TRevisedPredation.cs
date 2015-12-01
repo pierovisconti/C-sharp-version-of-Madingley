@@ -375,8 +375,10 @@ namespace Madingley
                     if ((_PlanktonFunctionalGroups[FunctionalGroup]) && (0 < PreyMassBinNumber) &&
                         (PreyMassBinNumber < NumberOfBins) && (_BodyMassPrey > 0))
                         {
-                            // Calculate the potential abundance from this cohort eaten by the acting cohort
-                            _PotentialAbundanceEaten[FunctionalGroup][i] = CalculateExpectedNumberKilledMarine(
+
+                          
+                    // Calculate the potential abundance from this cohort eaten by the acting cohort
+                    _PotentialAbundanceEaten[FunctionalGroup][i] = CalculateExpectedNumberKilledMarine(
                                 gridCellCohorts[FunctionalGroup][i].CohortAbundance, _BodyMassPrey, PreyMassBinNumber, FunctionalGroup,
                                 _BodyMassPredator, _CarnivoreFunctionalGroups[FunctionalGroup], _OmnivoreFunctionalGroups[FunctionalGroup],
                                 _OmnivoreFunctionalGroups[actingCohort[0]], _PredatorLogOptimalPreyBodySizeRatio);
@@ -409,8 +411,14 @@ namespace Madingley
                         // the prey cohort still exists in the model (i.e. body mass > 0)   
                         if ((0 < PreyMassBinNumber) && (PreyMassBinNumber < NumberOfBins) && (_BodyMassPrey > 0))
                         {
-                            // Calculate the potential abundance from this cohort eaten by the acting cohort
-                            _PotentialAbundanceEaten[FunctionalGroup][i] = CalculateExpectedNumberKilledMarine(
+                            if (Math.Log(_BodyMassPrey / _BodyMassPredator) > 0.462 * _PredatorLogOptimalPreyBodySizeRatio || Math.Log(_BodyMassPrey / _BodyMassPredator) < -0.462 * _PredatorLogOptimalPreyBodySizeRatio)
+                            {
+                               // _PotentialAbundanceEaten[FunctionalGroup][i] = 0;
+                            }
+                            else
+
+                                // Calculate the potential abundance from this cohort eaten by the acting cohort
+                                _PotentialAbundanceEaten[FunctionalGroup][i] = CalculateExpectedNumberKilledMarine(
                                gridCellCohorts[FunctionalGroup][i].CohortAbundance, _BodyMassPrey, PreyMassBinNumber, FunctionalGroup,
                                _BodyMassPredator, _CarnivoreFunctionalGroups[FunctionalGroup], _OmnivoreFunctionalGroups[FunctionalGroup],
                                _OmnivoreFunctionalGroups[actingCohort[0]], _PredatorLogOptimalPreyBodySizeRatio);
@@ -560,8 +568,18 @@ namespace Madingley
                     // Check whether the prey cohort still exists in the model (i.e. body mass > 0)            
                     if ((0 < PreyMassBinNumber) && (PreyMassBinNumber < NumberOfBins) && (_BodyMassPrey > 0))
                     {
-                        // Calculate the potential abundance from this cohort eaten by the acting cohort
-                        _PotentialAbundanceEaten[FunctionalGroup][i] = CalculateExpectedNumberKilledTerrestrial(
+
+
+                        // if body_mass prey 6.3 times smaller or 6.3 times larger
+
+                        if (Math.Log(_BodyMassPrey / _BodyMassPredator) > 0.462 * _PredatorLogOptimalPreyBodySizeRatio || Math.Log(_BodyMassPrey / _BodyMassPredator) < -0.462 * _PredatorLogOptimalPreyBodySizeRatio)
+                        {
+                           // _PotentialAbundanceEaten[FunctionalGroup][i] = 0;
+                        }
+                        else
+
+                            // Calculate the potential abundance from this cohort eaten by the acting cohort
+                            _PotentialAbundanceEaten[FunctionalGroup][i] = CalculateExpectedNumberKilledTerrestrial(
                             gridCellCohorts[FunctionalGroup][i].CohortAbundance, _BodyMassPrey, PreyMassBinNumber, FunctionalGroup,
                             _BodyMassPredator, _CarnivoreFunctionalGroups[FunctionalGroup], _OmnivoreFunctionalGroups[FunctionalGroup],
                             _OmnivoreFunctionalGroups[actingCohort[0]], _PredatorLogOptimalPreyBodySizeRatio);
@@ -627,12 +645,11 @@ namespace Madingley
                     _BodyMassPrey = gridCellCohorts[FunctionalGroup][i].IndividualBodyMass;
 
                      // Calculate the actual abundance of prey eaten from this cohort
-                    if (gridCellCohorts[FunctionalGroup][i].CohortAbundance > 0)
+                    if (gridCellCohorts[FunctionalGroup][i].CohortAbundance > 0 && _PotentialAbundanceEaten[FunctionalGroup][i]>0)
                     {
-                     
-                        
-                     // Calculate the actual abundance of prey eaten from this cohort
-                    _AbundancesEaten[FunctionalGroup][i] = CalculateAbundanceEaten(_PotentialAbundanceEaten[FunctionalGroup][i], _PredatorAbundanceMultipliedByTimeEating,
+                 
+                        // Calculate the actual abundance of prey eaten from this cohort
+                        _AbundancesEaten[FunctionalGroup][i] = CalculateAbundanceEaten(_PotentialAbundanceEaten[FunctionalGroup][i], _PredatorAbundanceMultipliedByTimeEating,
                         TotalTimeUnitsToHandlePlusOne, gridCellCohorts[FunctionalGroup][i].CohortAbundance);
 
                     }

@@ -7,8 +7,8 @@ Heterotroph,Herbivore,Planktivore,Marine,Mobile,iteroparity,Ectotherm,0.7,0,0.5,
 Heterotroph,Herbivore,Planktivore,Marine,Mobile,semelparity,Ectotherm,0.7,0,0.5,0.0001,10000,100,"Herbivorous ectos (inc e.g. krill, assumed larger fishes)"
 Heterotroph,Omnivore,All,Marine,Mobile,iteroparity,Ectotherm,0.6,0.64,0.5,0.00001,100000,100,Omnivorous ectos
 Heterotroph,Omnivore,All,Marine,Mobile,semelparity,Ectotherm,0.6,0.64,0.5,0.00001,100000,100,Omnivorous ectos
-Heterotroph,Herbivore,Planktivore,Marine,Planktonic,iteroparity,Ectotherm,0.7,0,0.5,0.00001,0.1,100,Obligate zooplankton
-Heterotroph,Herbivore,Planktivore,Marine,Planktonic,semelparity,Ectotherm,0.7,0,0.5,0.00001,0.1,100,Obligate zooplankton
+Heterotroph,Herbivore,Planktivore,Marine,Planktonic,iteroparity,Ectotherm,0.7,0,0.5,0.0001,0.1,100,Obligate zooplankton
+Heterotroph,Herbivore,Planktivore,Marine,Planktonic,semelparity,Ectotherm,0.7,0,0.5,0.0001,0.1,100,Obligate zooplankton
 Heterotroph,Herbivore,All,Terrestrial,Mobile,iteroparity,Endotherm,0.5,0,0.5,1.5,5000000,112,None
 Heterotroph,Carnivore,All,Terrestrial,Mobile,iteroparity,Endotherm,0,0.8,0.5,3,700000,112,None
 Heterotroph,Omnivore,All,Terrestrial,Mobile,iteroparity,Endotherm,0.4,0.64,0.5,3,1500000,112,None

@@ -679,12 +679,8 @@ namespace Madingley
                                 // within the bounds of the minimum and maximum body masses for the functional group
                                 CohortAdultMass = Math.Pow(10, (RandomNumberGenerator.GetUniform() * (Math.Log10(MassMaxima[FunctionalGroup]) - Math.Log10(50 * MassMinima[FunctionalGroup])) + Math.Log10(50 * MassMinima[FunctionalGroup])));
 
-                                // Terrestrial and marine organisms have different optimal prey/predator body mass ratios
-                                if (cellEnvironment["Realm"][0] == 1.0)
-                                    // Optimal prey body size 10%
-                                    OptimalPreyBodySizeRatio = Math.Max(0.01, RandomNumberGenerator.GetNormal(0.1, 0.02));
-                                else
-                                {
+                                // Wales have different optimal prey/predator body mass ratios
+                              
                                     if (functionalGroups.GetTraitNames("Diet", FunctionalGroup) == "allspecial")
                                     {
                                         // Note that for this group
@@ -699,7 +695,7 @@ namespace Madingley
                                         OptimalPreyBodySizeRatio = Math.Max(0.01, RandomNumberGenerator.GetNormal(0.1, 0.02));
                                     }
 
-                                }
+                               
 
 
                                 // Draw from a log-normal distribution with mean 10.0 and standard deviation 5.0, then add one to obtain 
